@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.main.main.MainActivity"
+    android:id="@+id/fragment_login">
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
