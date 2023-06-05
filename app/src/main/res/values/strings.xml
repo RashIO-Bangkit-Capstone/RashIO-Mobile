@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">RashIO</string>
+    <!-- fragment - Login & Register -->
+    <string name="login">Login</string>
+    <string name="login_info">Silahkan login untuk menggunakan aplikasi</string>
+    <string name="no_acc">Belum punya akun?</string>
+    <string name="regis">Register</string>
+    <string name="regis_info">Silahkan mendaftar untuk membuat akun</string>
+    <string name="have_acc">Sudah punya akun?</string>
+
+    <string name="email">E - mail</string>
+    <string name="name">Nama</string>
+    <string name="psswrd">Password</string>
+    <string name="no_hp">No. Hp</string>
+
+    <!-- fragment - Beranda -->
+        <!-- Bottom Navigation -->
+        <string name="title_home">Beranda</string>
+        <string name="title_camera">Deteksi</string>
+        <string name="title_profile">Profil</string>
+
+    <string name="title_item_list">Artikel</string>
+    <string name="greetings">Halo, $user\nSelamat Datang di RashIO</string>
+    <string name="title">Judul</string>
+    <string name="author">author by</string>
+    <string name="save_bookmark">Save Bookmark?</string>
+
+    <!-- fragment - Detail Artikel -->
+    <string name="published_data">Terakhir Diperbarui: </string>
+    <string name="reference_link">Referensi</string>
+    <string name="content_text">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. </string>
+
+    <!-- fragment - Detection   -->
+    <string name="detection_title">Deteksi</string>
+    <string name="start_detect">Mulai Deteksi</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="description_input">Masukkan gambar yang ingin anda deteksi</string>
+
 </resources>
