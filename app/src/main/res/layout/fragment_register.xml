@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:lines="1"
-        android:text="@string/name"
+        android:hint="@string/name"
         android:textColor="@color/faded_text_color"
         android:layout_marginTop="35dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_info"/>
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:inputType="number|textEmailAddress"
         android:lines="1"
-        android:text="@string/email"
+        android:hint="@string/email"
         android:textColor="@color/faded_text_color"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_name" />
@@ -61,9 +61,9 @@
         android:id="@+id/rgst_psswrd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:lines="1"
-        android:text="@string/psswrd"
+        android:hint="@string/psswrd"
         android:textColor="@color/faded_text_color"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_email" />
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:inputType="number|phone"
         android:lines="1"
-        android:text="@string/no_hp"
+        android:hint="@string/no_hp"
         android:textColor="@color/faded_text_color"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_psswrd" />
