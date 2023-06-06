@@ -11,10 +11,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
 
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(id.rashio.android.R.id.fragment_login, LoginFragment())
+        fragmentTransaction.replace(R.id.fragment_login, LoginFragment())
         fragmentTransaction.commit()
     }
 }
