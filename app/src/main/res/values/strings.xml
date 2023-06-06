@@ -14,10 +14,10 @@
     <string name="no_hp">No. Hp</string>
 
     <!-- fragment - Beranda -->
-        <!-- Bottom Navigation -->
-        <string name="title_home">Beranda</string>
-        <string name="title_camera">Deteksi</string>
-        <string name="title_profile">Profil</string>
+    <!-- Bottom Navigation -->
+    <string name="title_home">Beranda</string>
+    <string name="title_camera">Deteksi</string>
+    <string name="title_profile">Profil</string>
 
     <string name="title_item_list">Artikel</string>
     <string name="greetings">Halo, $user\nSelamat Datang di RashIO</string>
@@ -36,5 +36,13 @@
     <string name="gallery">Galeri</string>
     <string name="camera">Kamera</string>
     <string name="description_input">Masukkan gambar yang ingin anda deteksi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- fragment - Profile -->
+    <string name="username">Nama Pengguna</string>
+    <string name="user_mail">emailpengguna@gmail.com</string>
+    <string name="user_handphone">083423454453</string>
+
 
 </resources>
