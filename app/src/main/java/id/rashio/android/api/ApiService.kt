@@ -1,13 +1,8 @@
 package id.rashio.android.api
 
-import id.rashio.android.model.LoginRequest
-import id.rashio.android.model.LoginResponse
-import id.rashio.android.model.RegisterRequest
-import id.rashio.android.model.RegisterResponse
+import id.rashio.android.model.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @POST("authentications")
@@ -19,4 +14,15 @@ interface ApiService {
     fun register(@Body registerRequst: RegisterRequest,
                  @Header("Content-Type") contentType: String = "application/json"
     ): Call<RegisterResponse>
+
+    @GET("articles")
+    fun getAllArticles(@Header("Content-Type") contentType: String = "application/json"
+    ) : Call<Article>
+
+    @GET("articles/{id}")
+    fun getDetailArticle(
+        @Path("id") id: Int,
+        @Header("Content-Type") contentType: String = "application/json"
+    ) : Call <DetailArticle>
+
 }
