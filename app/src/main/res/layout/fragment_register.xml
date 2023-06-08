@@ -42,7 +42,7 @@
         android:inputType="text"
         android:lines="1"
         android:hint="@string/name"
-        android:textColor="@color/faded_text_color"
+        android:textColor="@color/black"
         android:layout_marginTop="35dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_info"/>
 
@@ -50,10 +50,10 @@
         android:id="@+id/rgst_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number|textEmailAddress"
+        android:inputType="textEmailAddress"
         android:lines="1"
         android:hint="@string/email"
-        android:textColor="@color/faded_text_color"
+        android:textColor="@color/black"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_name" />
 
@@ -64,9 +64,20 @@
         android:inputType="textPassword"
         android:lines="1"
         android:hint="@string/psswrd"
-        android:textColor="@color/faded_text_color"
+        android:textColor="@color/black"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_email" />
+
+    <EditText
+        android:id="@+id/rgst_confirm_psswrd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:lines="1"
+        android:hint="@string/password_confirmation"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/rgst_psswrd" />
 
     <EditText
         android:id="@+id/rgst_no_hp"
@@ -75,9 +86,9 @@
         android:inputType="number|phone"
         android:lines="1"
         android:hint="@string/no_hp"
-        android:textColor="@color/faded_text_color"
+        android:textColor="@color/black"
         android:layout_marginTop="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/rgst_psswrd" />
+        app:layout_constraintTop_toBottomOf="@+id/rgst_confirm_psswrd" />
 
     <Button
         android:id="@+id/btn_regis"
