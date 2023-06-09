@@ -9,18 +9,19 @@ import com.bumptech.glide.Glide
 import id.rashio.android.databinding.ItemArticleBinding
 import id.rashio.android.model.DataArticle
 
-class ArticleListAdapter(private val onClick: (Int?) -> Unit) :
+class ArticleListAdapter(private val onClick: (Int) -> Unit) :
     ListAdapter<DataArticle, ArticleListAdapter.ArticleViewHolder>(ArticleDiffCallback) {
 
     class ArticleViewHolder(private val binding: ItemArticleBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: DataArticle, onClick: (Int?) -> Unit) {
+        fun bind(item: DataArticle, onClick: (Int) -> Unit) {
             binding.apply {
                 itemArticleContainer.setOnClickListener {
                     onClick(item.id)
                 }
 
                 tvItemTitle.text = item.title
+                tvAuthor.text = item.author
                 Glide.with(root.context)
                     .load(item.imageUrl)
                     .into(imgPoster)

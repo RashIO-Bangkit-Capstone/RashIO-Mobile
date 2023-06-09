@@ -12,5 +12,7 @@ data class DataDetailArticle(
     val title: String,
     val referenceUrl: String,
     val imageUrl: String,
+    val author: String,
+    val createdAt: String,
     val bodies: List<String>
 )

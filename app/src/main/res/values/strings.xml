@@ -22,8 +22,8 @@
 
     <string name="title_item_list">Artikel</string>
     <string name="greetings">Halo, %s\nSelamat Datang di RashIO</string>
-    <string name="title">Judul</string>
-    <string name="author">author by</string>
+    <string name="title">Kenali Lebih Dalam Penyebab Eksim pada Bayi dan Pengobatannya</string>
+    <string name="author">Ditinjau oleh: </string>
     <string name="save_bookmark">Save Bookmark?</string>
 
     <!-- fragment - Detail Artikel -->
@@ -55,6 +55,9 @@
     <string name="user_mail">emailpengguna@gmail.com</string>
     <string name="user_handphone">083423454453</string>
     <string name="password_confirmation">Password Confirmation</string>
+    <string name="hello_blank_fragment">hello from blank</string>
+    <string name="article_title">Artikel</string>
+    <string name="by">by</string>
 
 
 </resources>
