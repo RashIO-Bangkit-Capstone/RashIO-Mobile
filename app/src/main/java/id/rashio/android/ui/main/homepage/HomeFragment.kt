@@ -2,23 +2,17 @@ package id.rashio.android.ui.main.homepage
 
 import android.os.Build
 import android.os.Bundle
-import android.text.Layout
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import id.rashio.android.R
 import id.rashio.android.adapter.ArticleListAdapter
@@ -29,7 +23,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
@@ -57,7 +51,7 @@ class HomeFragment : Fragment() {
         val greeting = getString(R.string.greetings, name)
         textDescription.text = greeting
 
-        val adapter = ArticleListAdapter(onClick = {articleId ->
+        val adapter = ArticleListAdapter(onClick = { articleId ->
 
         })
 
