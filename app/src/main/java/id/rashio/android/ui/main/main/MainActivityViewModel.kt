@@ -1,8 +1,10 @@
 package id.rashio.android.ui.main.main
 
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -22,10 +24,10 @@ class MainActivityViewModel @Inject constructor(
     val uiState: StateFlow<MainUiState> = _uiState
 
     fun isLogin() {
-        val accessToken = sharedPreferences.getString("ACCESS_TOKEN", null)
-        val refreshToken = sharedPreferences.getString("REFRESH_TOKEN", null)
+        val tokenManager = TokenManager(sharedPreferences)
 
-        if (accessToken != null && refreshToken != null) {
+        if (tokenManager.getAccessToken() == null &&
+            tokenManager.getRefreshToken() == null) {
             navigateToLogin()
         }
     }

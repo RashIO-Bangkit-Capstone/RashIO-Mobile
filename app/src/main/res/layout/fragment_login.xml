@@ -1,100 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center_vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="35dp"
-    tools:context=".ui.main.login.LoginFragment"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="36dp">
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/login_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:gravity="center"
-        android:text="@string/login"
-        android:textColor="@color/dark_brown"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="35dp" />
+        android:orientation="vertical"
+        android:padding="35dp"
+        tools:context=".ui.main.login.LoginFragment"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="36dp">
 
-    <TextView
-        android:id="@+id/login_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="@string/login_info"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/login_title"
-        tools:layout_editor_absoluteX="35dp" />
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/dark_brown"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="35dp" />
 
-    <EditText
-        android:id="@+id/edt_mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:inputType="textEmailAddress"
-        android:lines="1"
-        android:hint="@string/email"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/login_info"
-        tools:layout_editor_absoluteX="35dp" />
+        <TextView
+            android:id="@+id/login_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/login_info"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/login_title"
+            tools:layout_editor_absoluteX="35dp" />
 
-    <EditText
-        android:id="@+id/edt_psswrd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:inputType="textPassword"
-        android:lines="1"
-        android:hint="@string/psswrd"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/edt_mail"
-        tools:layout_editor_absoluteX="35dp" />
+        <EditText
+            android:id="@+id/edt_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:hint="@string/email"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/login_info"
+            tools:layout_editor_absoluteX="35dp" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/ic_round_btn"
-        android:text="@string/login"
-        android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@+id/edt_psswrd"
-        tools:layout_editor_absoluteX="35dp" />
+        <EditText
+            android:id="@+id/edt_psswrd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:hint="@string/psswrd"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/edt_mail"
+            tools:layout_editor_absoluteX="35dp" />
 
-    <TextView
-        android:id="@+id/ask_regis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/no_acc"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/ic_round_btn"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/edt_psswrd"
+            tools:layout_editor_absoluteX="35dp" />
 
-    <TextView
-        android:id="@+id/link_to_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/regis"
-        android:textColor="@color/brown"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@id/ask_regis"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/ask_regis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/no_acc"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/link_to_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/regis"
+                android:textColor="@color/brown"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
+
+

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center_vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="50dp"
-    tools:context=".ui.main.register.RegisterFragment">
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp"
+        tools:context=".ui.main.register.RegisterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/rgst_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
         android:gravity="center"
         android:text="@string/regis"
         android:textSize="36sp"
@@ -100,29 +105,40 @@
         android:layout_marginTop="45dp"
         app:layout_constraintTop_toBottomOf="@+id/rgst_no_hp" />
 
-    <TextView
-        android:id="@+id/ask_login"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/have_acc"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="80dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/btn_regis"
-        app:layout_constraintStart_toStartOf="@id/btn_regis"/>
+        app:layout_constraintStart_toStartOf="@id/btn_regis"
+        >
 
-    <TextView
-        android:id="@+id/link_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/login"
-        android:textColor="@color/brown"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
-        app:layout_constraintStart_toEndOf="@id/ask_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_regis" />
+        <TextView
+            android:id="@+id/ask_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/have_acc"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/link_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/brown"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/ask_login"
+            app:layout_constraintTop_toBottomOf="@+id/btn_regis" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

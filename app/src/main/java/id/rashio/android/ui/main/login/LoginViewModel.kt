@@ -1,7 +1,10 @@
 package id.rashio.android.ui.main.login
 
 import android.content.SharedPreferences
+import android.os.Build
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,6 +14,7 @@ import id.rashio.android.api.ApiService
 import id.rashio.android.model.LoginRequest
 import id.rashio.android.model.LoginResponse
 import id.rashio.android.ui.main.homepage.HomeFragment
+import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -33,6 +37,8 @@ class LoginViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<LoginUiState>(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
+
+    private val tokenManager = TokenManager(sharedPreferences)
 
     fun login(email :String, password :String){
         val loginRequest = LoginRequest(email, password)
@@ -68,10 +74,8 @@ class LoginViewModel @Inject constructor(
 
 
     fun saveToken(accessToken :String, refreshToken :String ){
-        val editor = sharedPreferences.edit()
-        editor?.putString("ACCESS_TOKEN", accessToken)
-        editor?.putString("REFRESH_TOKEN", refreshToken)
-        editor?.apply()
+        tokenManager.saveAccessToken(accessToken)
+        tokenManager.saveRefreshToken(refreshToken)
     }
 
     fun navigateToHome() {
@@ -108,6 +112,4 @@ class LoginViewModel @Inject constructor(
             it.copy(error = null)
         }
     }
-
-
 }

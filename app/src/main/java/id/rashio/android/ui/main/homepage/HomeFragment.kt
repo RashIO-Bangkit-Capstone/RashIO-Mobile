@@ -1,11 +1,13 @@
 package id.rashio.android.ui.main.homepage
 
+import android.os.Build
 import android.os.Bundle
 import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
@@ -44,9 +46,16 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.navView.setupWithNavController(findNavController())
+
+
+        val textDescription = binding.textDescription
+        val name = viewModel.getUserName()
+        val greeting = getString(R.string.greetings, name)
+        textDescription.text = greeting
 
         val adapter = ArticleListAdapter(onClick = {articleId ->
 
