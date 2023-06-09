@@ -21,7 +21,7 @@
     <string name="title_profile">Profil</string>
 
     <string name="title_item_list">Artikel</string>
-    <string name="greetings">Halo, $user\nSelamat Datang di RashIO</string>
+    <string name="greetings">Halo, %s\nSelamat Datang di RashIO</string>
     <string name="title">Judul</string>
     <string name="author">author by</string>
     <string name="save_bookmark">Save Bookmark?</string>

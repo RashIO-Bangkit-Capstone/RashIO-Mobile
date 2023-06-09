@@ -57,5 +57,14 @@
         android:id="@+id/detectionFragment"
         android:name="id.rashio.android.ui.main.detection.DetectionFragment"
         android:label="fragment_detection"
-        tools:layout="@layout/fragment_detection" />
+        tools:layout="@layout/fragment_detection" >
+        <action
+            android:id="@+id/action_detectionFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="id.rashio.android.ui.main.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
 </navigation>

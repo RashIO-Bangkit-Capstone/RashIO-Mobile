@@ -24,28 +24,10 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
-
-
-//
-//
-//        isLogin()
-//
-//        val btnLogin = view.findViewById(R.id.btn_login) as Button
-//        btnLogin.setOnClickListener {
-//            val edt_mail = view.findViewById(R.id.edt_mail) as EditText
-//            val edt_psswrd = view.findViewById(R.id.edt_psswrd) as EditText
-//
-//            val email = edt_mail.text.toString()
-//            val password = edt_psswrd.text.toString()
-//
-//            login(email, password)
-//        }
-//
-//        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

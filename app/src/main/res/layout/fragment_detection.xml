@@ -32,13 +32,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/galleryButton"
+        app:layout_constraintBottom_toTopOf="@+id/textinput_placeholder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar"
         app:srcCompat="@drawable/ic_image_placeholder"/>
 
     <TextView
+        android:id="@+id/textinput_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

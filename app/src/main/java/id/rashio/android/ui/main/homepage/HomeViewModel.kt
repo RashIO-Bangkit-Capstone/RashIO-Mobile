@@ -1,13 +1,14 @@
 package id.rashio.android.ui.main.homepage
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.content.SharedPreferences
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rashio.android.data.repository.ArticleRepository
 import id.rashio.android.model.Article
 import id.rashio.android.model.DataArticle
-import id.rashio.android.ui.main.login.LoginUiState
+import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -24,14 +25,16 @@ data class HomeUiState(
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val articleRepository: ArticleRepository
+    private val articleRepository: ArticleRepository,
+    private val sharedPreferences: SharedPreferences
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState
 
-    init {
+    private val tokenManager = TokenManager(sharedPreferences)
 
+    init {
         val call = articleRepository.getAllArticle()
         call.enqueue(object : Callback<Article> {
             override fun onResponse(
@@ -67,5 +70,8 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getUserName(): String? {
+        return tokenManager.getName()
+    }
 }

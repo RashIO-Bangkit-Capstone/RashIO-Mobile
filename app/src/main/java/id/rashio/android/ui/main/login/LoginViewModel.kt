@@ -1,16 +1,12 @@
 package id.rashio.android.ui.main.login
 
 import android.content.SharedPreferences
-import android.widget.Toast
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import id.rashio.android.R
-import id.rashio.android.api.ApiConfig
 import id.rashio.android.api.ApiService
 import id.rashio.android.model.LoginRequest
 import id.rashio.android.model.LoginResponse
-import id.rashio.android.ui.main.homepage.HomeFragment
+import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -29,12 +25,14 @@ data class LoginUiState(
 class LoginViewModel @Inject constructor(
     private val api: ApiService,
     private val sharedPreferences: SharedPreferences
-): ViewModel() {
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LoginUiState>(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
 
-    fun login(email :String, password :String){
+    private val tokenManager = TokenManager(sharedPreferences)
+
+    fun login(email: String, password: String) {
         val loginRequest = LoginRequest(email, password)
         val call = api.login(loginRequest)
         call.enqueue(object : Callback<LoginResponse> {
@@ -48,7 +46,7 @@ class LoginViewModel @Inject constructor(
                     val refreshToken = loginResponse?.data?.refreshToken.toString()
 
                     val message = loginResponse?.status.toString()
-                    showMsg(message ?: "success")
+                    showMsg(message)
                     saveToken(accessToken, refreshToken)
                     navigateToHome()
 
@@ -56,7 +54,7 @@ class LoginViewModel @Inject constructor(
                     val errorBody = response.errorBody()
                     val responseJSON = errorBody?.string()?.let { JSONObject(it) }
                     val message = responseJSON?.getString("message")
-                    showError(message?:"Unexpected Error")
+                    showError(message ?: "Unexpected Error")
                 }
             }
 
@@ -66,12 +64,9 @@ class LoginViewModel @Inject constructor(
     }
 
 
-
-    fun saveToken(accessToken :String, refreshToken :String ){
-        val editor = sharedPreferences.edit()
-        editor?.putString("ACCESS_TOKEN", accessToken)
-        editor?.putString("REFRESH_TOKEN", refreshToken)
-        editor?.apply()
+    fun saveToken(accessToken: String, refreshToken: String) {
+        tokenManager.saveAccessToken(accessToken)
+        tokenManager.saveRefreshToken(refreshToken)
     }
 
     fun navigateToHome() {
@@ -97,6 +92,7 @@ class LoginViewModel @Inject constructor(
             it.copy(error = null)
         }
     }
+
     fun showMsg(msg: String) {
         _uiState.update {
             it.copy(error = "Login $msg, Welcome")
@@ -108,6 +104,4 @@ class LoginViewModel @Inject constructor(
             it.copy(error = null)
         }
     }
-
-
 }

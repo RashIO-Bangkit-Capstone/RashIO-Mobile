@@ -1,21 +1,15 @@
 package id.rashio.android.ui.main.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import id.rashio.android.R
 import id.rashio.android.databinding.ActivityMainBinding
 import id.rashio.android.ui.main.homepage.HomeFragmentDirections
-import id.rashio.android.ui.main.login.LoginFragment
-import id.rashio.android.ui.main.login.LoginViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -39,8 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
-                if(it.navigateToLogin == true){
+                if (it.navigateToLogin == true) {
                     navController.navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment())
+                    viewModel.navigatedToLogin()
                 }
             }
         }
