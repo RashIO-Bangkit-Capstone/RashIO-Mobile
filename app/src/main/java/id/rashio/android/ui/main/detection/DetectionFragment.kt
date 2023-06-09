@@ -15,12 +15,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
-import id.rashio.android.R
 import id.rashio.android.databinding.FragmentDetectionBinding
 import id.rashio.android.utils.getFileFromUri
+import id.rashio.android.utils.reduceFileImage
 import java.io.File
 
 @AndroidEntryPoint
@@ -30,11 +31,12 @@ class DetectionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var imageFile: File? = null
+    private val viewModel: DetectionViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentDetectionBinding.inflate(inflater, container, false)
         return binding.root
@@ -51,16 +53,16 @@ class DetectionFragment : Fragment() {
             )
         }
 
-        binding.cameraButton.setOnClickListener{
+        binding.cameraButton.setOnClickListener {
             findNavController().navigate(DetectionFragmentDirections.actionDetectionFragmentToCameraFragment())
         }
 
-        binding.galleryButton.setOnClickListener{
+        binding.galleryButton.setOnClickListener {
             startGallery()
         }
 
         binding.uploadButton.setOnClickListener {
-
+            uploadImage()
         }
 
 
@@ -105,6 +107,23 @@ class DetectionFragment : Fragment() {
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
+    }
+
+    private fun uploadImage() {
+
+        if (imageFile != null) {
+            val file = reduceFileImage(imageFile as File)
+            viewModel.uploadFile(file)
+
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Silakan masukkan berkas gambar terlebih dahulu.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+        }
+
     }
 
     private val launcherIntentGallery = registerForActivityResult(

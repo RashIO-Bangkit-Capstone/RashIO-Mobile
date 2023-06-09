@@ -4,11 +4,11 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.annotation.RequiresApi
 import org.json.JSONObject
-import java.util.Base64
+import java.util.*
 
 class TokenManager(
-        private val sharedPreferences: SharedPreferences
-    ) {
+    private val sharedPreferences: SharedPreferences
+) {
 
     fun saveAccessToken(token: String) {
         val editor = sharedPreferences.edit()
@@ -21,26 +21,6 @@ class TokenManager(
         editor.putString("REFRESH_TOKEN", token)
         editor.apply()
     }
-
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    fun saveNameFromToken(token: String){
-//        val decoded = decodeToken(token)
-//        val jsonObject = JSONObject(decoded)
-//        val name = jsonObject.getString("name")
-//        val editor = sharedPreferences.edit()
-//        editor.putString("NAME", name)
-//        editor.apply()
-//    }
-//
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    fun saveIdFromToken(token: String){
-//        val decoded = decodeToken(token)
-//        val jsonObject = JSONObject(decoded)
-//        val id = jsonObject.getString("id")
-//        val editor = sharedPreferences.edit()
-//        editor.putString("ID", id)
-//        editor.apply()
-//    }
 
     fun getAccessToken(): String? {
         return sharedPreferences.getString("ACCESS_TOKEN", null)

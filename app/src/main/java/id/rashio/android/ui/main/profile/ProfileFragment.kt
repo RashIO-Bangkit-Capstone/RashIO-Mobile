@@ -1,12 +1,11 @@
 package id.rashio.android.ui.main.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
-import id.rashio.android.R
 import id.rashio.android.databinding.FragmentProfileBinding
 
 @AndroidEntryPoint

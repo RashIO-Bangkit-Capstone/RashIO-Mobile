@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 class DefaultArticleRepository @Inject constructor(
     private val api: ApiService,
-    private val sharedPreferences: SharedPreferences
 ) : ArticleRepository {
+
 
     override fun getAllArticle(): Call<Article> {
         return api.getAllArticles()
@@ -19,4 +19,5 @@ class DefaultArticleRepository @Inject constructor(
     override fun getArticleDetail(id: Int): Call<DetailArticle> {
         return api.getDetailArticle(id)
     }
+
 }

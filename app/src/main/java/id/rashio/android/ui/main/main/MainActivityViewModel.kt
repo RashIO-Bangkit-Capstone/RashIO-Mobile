@@ -1,7 +1,6 @@
 package id.rashio.android.ui.main.main
 
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rashio.android.utils.TokenManager
@@ -27,7 +26,8 @@ class MainActivityViewModel @Inject constructor(
         val tokenManager = TokenManager(sharedPreferences)
 
         if (tokenManager.getAccessToken() == null &&
-            tokenManager.getRefreshToken() == null) {
+            tokenManager.getRefreshToken() == null
+        ) {
             navigateToLogin()
         }
     }

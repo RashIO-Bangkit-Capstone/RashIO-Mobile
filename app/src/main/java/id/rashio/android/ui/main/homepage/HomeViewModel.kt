@@ -2,16 +2,12 @@ package id.rashio.android.ui.main.homepage
 
 import android.content.SharedPreferences
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rashio.android.data.repository.ArticleRepository
 import id.rashio.android.model.Article
 import id.rashio.android.model.DataArticle
-import id.rashio.android.ui.main.login.LoginUiState
 import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
