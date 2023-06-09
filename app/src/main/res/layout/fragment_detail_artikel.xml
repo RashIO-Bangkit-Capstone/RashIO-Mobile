@@ -32,10 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/detection_title"
-            app:titleTextColor="@color/white"
+            app:titleTextColor="@color/dark_brown"
+            android:background="@color/white"
             app:navigationIcon="@drawable/back_button"
-            app:titleCentered="true"
-            />
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
