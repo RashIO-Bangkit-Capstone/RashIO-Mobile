@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.homepage.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -31,6 +30,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
@@ -63,8 +63,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_band"
         android:layout_width="0dp"
-        android:layout_height="505dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

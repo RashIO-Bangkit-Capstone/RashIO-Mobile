@@ -9,5 +9,5 @@ data class LoginResponse(
 
 data class Data(
     val accessToken: String,
-    val refreshToken:String
+    val refreshToken: String
 )

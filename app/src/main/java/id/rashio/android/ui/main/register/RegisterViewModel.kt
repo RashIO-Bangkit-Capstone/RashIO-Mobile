@@ -34,7 +34,7 @@ class RegisterViewModel @Inject constructor(
         password: String,
         confirmPassword: String,
 
-    ) {
+        ) {
         val registerRequest = RegisterRequest(name, email, phoneNumber, password, confirmPassword)
         val call = api.register(registerRequest)
         call.enqueue(object : Callback<RegisterResponse> {
@@ -45,7 +45,7 @@ class RegisterViewModel @Inject constructor(
                 if (response.isSuccessful) {
                     val registerResponse = response.body()
                     val message = registerResponse?.status.toString()
-                    showMsg(message ?: "Success")
+                    showMsg(message)
                     navigateToLogin()
 
                 } else {
@@ -91,10 +91,5 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
-    fun msgShown() {
-        _uiState.update {
-            it.copy(error = null)
-        }
-    }
 
 }
