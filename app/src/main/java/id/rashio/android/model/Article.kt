@@ -11,6 +11,7 @@ data class DataArticle(
     val id: Int,
     val title: String,
     val referenceUrl: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val author: String
 )
 

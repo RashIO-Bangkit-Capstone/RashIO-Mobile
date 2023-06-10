@@ -13,13 +13,16 @@
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_detectionFragment"
             app:destination="@id/detectionFragment" />
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailArtikelFragment"
+            app:destination="@id/detailArtikelFragment" />
     </fragment>
 
 
@@ -27,12 +30,12 @@
         android:id="@+id/loginFragment"
         android:name="id.rashio.android.ui.main.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
 
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -43,7 +46,7 @@
         android:id="@+id/registerFragment"
         android:name="id.rashio.android.ui.main.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -52,19 +55,54 @@
         android:id="@+id/profileFragment"
         android:name="id.rashio.android.ui.main.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detectionFragment"
-        android:name="id.rashio.android.ui.main.detection.DetectionFragment"
+        android:name="id.rashio.android.ui.main.detection.upload.UploadDetectionFragment"
         android:label="fragment_detection"
-        tools:layout="@layout/fragment_detection" >
+        tools:layout="@layout/fragment_upload_detection">
         <action
             android:id="@+id/action_detectionFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_detectionFragment_to_resultDetectionFragment"
+            app:destination="@id/resultDetectionFragment" />
+        <action
+            android:id="@+id/action_detectionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="id.rashio.android.ui.main.camera.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/detailArtikelFragment"
+        android:name="id.rashio.android.ui.main.detailartikel.DetailArtikelFragment"
+        android:label="fragment_detail_artikel"
+        tools:layout="@layout/fragment_detail_artikel">
+        <argument
+            android:name="articleId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailArtikelFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultDetectionFragment"
+        android:name="id.rashio.android.ui.main.detection.result.ResultDetectionFragment"
+        android:label="fragment_result_detection"
+        tools:layout="@layout/fragment_result_detection" >
+        <argument
+            android:name="diseaseName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="percentage"
+            app:argType="float" />
+    </fragment>
 </navigation>

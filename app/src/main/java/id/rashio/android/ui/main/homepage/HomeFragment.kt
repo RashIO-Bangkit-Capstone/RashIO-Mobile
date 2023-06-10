@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,7 +37,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
         textDescription.text = greeting
 
         val adapter = ArticleListAdapter(onClick = { articleId ->
-
+            navigateToDetailArticle(articleId)
         })
 
         val layoutManager = LinearLayoutManager(requireContext())
@@ -65,6 +65,21 @@ class HomeFragment : Fragment() {
             }
         }
 
+    }
 
+    override fun onStart() {
+        super.onStart()
+        binding.navView.selectedItemId = R.id.homeFragment
+    }
+
+    private fun navigateToDetailArticle(articleId: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailArtikelFragment(articleId)
+        findNavController().safeNavigate(action)
+    }
+
+    fun NavController.safeNavigate(direction: NavDirections) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            navigate(direction)
+        }
     }
 }

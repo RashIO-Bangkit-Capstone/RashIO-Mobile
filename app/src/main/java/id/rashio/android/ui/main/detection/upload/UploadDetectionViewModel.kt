@@ -1,6 +1,5 @@
-package id.rashio.android.ui.main.detection
+package id.rashio.android.ui.main.detection.upload
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,18 +15,30 @@ import retrofit2.Response
 import java.io.File
 import javax.inject.Inject
 
-data class DetectionUiState(
-    val navigateToHome: Boolean? = null,
-    val error: String? = null
-)
+//data class UploadDetectionUiState(
+//    val navigateToResult: Boolean? = null,
+//    val error: String? = null
+//)
+
+sealed interface UploadDetectionUiState {
+    object Loading : UploadDetectionUiState
+    data class Success(
+        val navigateToResult: Boolean? = null,
+        val diseaseName: String? = null,
+        val percentage: Float? = null
+    ) : UploadDetectionUiState
+
+    data class Error(val message: String? = null) : UploadDetectionUiState
+}
 
 @HiltViewModel
-class DetectionViewModel @Inject constructor(
+class UploadDetectionViewModel @Inject constructor(
     private val detectionRepository: DetectionRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<DetectionUiState>(DetectionUiState())
-    val uiState: StateFlow<DetectionUiState> = _uiState
+    private val _uiState =
+        MutableStateFlow<UploadDetectionUiState>(UploadDetectionUiState.Success())
+    val uiState: StateFlow<UploadDetectionUiState> = _uiState
 
     fun uploadFile(photo: File) {
         val call = detectionRepository.uploadDetection(photo)
@@ -37,10 +48,16 @@ class DetectionViewModel @Inject constructor(
                 response: Response<FileUploadResponse>
             ) {
                 if (response.isSuccessful) {
+
                     Log.d(
                         "File Uploaded",
                         "${response.body()?.code}, ${response.body()?.message}, ${response.body()?.data}"
                     )
+
+                    val diseaseId = response.body()?.data?.result ?: ""
+                    val percentage = response.body()?.data?.percentage ?: 0F
+
+                    navigateToResult(diseaseId, percentage)
 
                 } else {
                     val errorBody = response.errorBody()
@@ -56,33 +73,34 @@ class DetectionViewModel @Inject constructor(
             }
 
             override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                Log.d("Testing On Failure", t.toString())
             }
         })
 
     }
 
 
-    fun navigateToHome() {
+    fun navigateToResult(diseaseName: String, percentage: Float) {
         _uiState.update {
-            it.copy(navigateToHome = true)
+            UploadDetectionUiState.Success(true, diseaseName, percentage)
         }
     }
 
-    fun navigatedToHome() {
+    fun navigatedToResult() {
         _uiState.update {
-            it.copy(navigateToHome = null)
+            UploadDetectionUiState.Success(null, null, null)
         }
     }
 
     fun showError(msg: String) {
         _uiState.update {
-            it.copy(error = "Upload Failed, $msg")
+            UploadDetectionUiState.Error("Uploaded Failed, $msg")
         }
     }
 
     fun errorShown() {
         _uiState.update {
-            it.copy(error = null)
+            UploadDetectionUiState.Error(null)
         }
     }
 }
