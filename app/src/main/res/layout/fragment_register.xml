@@ -98,8 +98,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
-            android:background="@drawable/ic_round_btn"
+            android:background="@drawable/round_btn_brown"
             android:text="@string/regis"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@+id/rgst_no_hp" />
 

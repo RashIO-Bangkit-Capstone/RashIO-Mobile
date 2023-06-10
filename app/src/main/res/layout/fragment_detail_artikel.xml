@@ -35,7 +35,6 @@
             app:title="@string/article_title"
             app:titleCentered="true"
             app:titleTextColor="@color/dark_brown">
-            >
 
             <ImageView
                 android:id="@+id/bookmarkIcon"

@@ -51,6 +51,7 @@
 
 
     <!-- fragment - Profile -->
+    <string name="profile_title">Profil</string>
     <string name="username">Nama Pengguna</string>
     <string name="user_mail">emailpengguna@gmail.com</string>
     <string name="user_handphone">083423454453</string>

@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_detectionFragment"
+            app:destination="@id/detectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/detectionFragment"
@@ -74,6 +77,9 @@
         <action
             android:id="@+id/action_detectionFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detectionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"

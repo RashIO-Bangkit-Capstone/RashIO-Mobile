@@ -30,6 +30,9 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.navView.setupWithNavController(findNavController())
 
+        binding.topAppBar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onStart() {

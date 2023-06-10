@@ -33,10 +33,20 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
-            app:navigationIcon="@drawable/ic_baseline_logout_24"
-            app:title="@string/detection_title"
+            app:navigationIcon="@drawable/back_button"
+            app:title="@string/profile_title"
             app:titleCentered="true"
-            app:titleTextColor="@color/dark_brown" />
+            app:titleTextColor="@color/dark_brown" >
+
+            <ImageView
+                android:id="@+id/btn_logout"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/ic_baseline_logout_24" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -75,7 +85,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    tools:text="@string/username" />
+                    android:text="@string/username" />
 
                 <TextView
                     android:id="@+id/tv_author"
@@ -84,7 +94,7 @@
                     android:textColor="@color/brown"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:text="@string/user_mail" />
+                    android:text="@string/user_mail" />
 
                 <TextView
                     android:id="@+id/no_hp"
@@ -93,7 +103,7 @@
                     android:gravity="start"
                     android:textColor="@color/brown"
                     android:textSize="14sp"
-                    tools:text="@string/user_handphone" />
+                    android:text="@string/user_handphone" />
             </LinearLayout>
 
         </LinearLayout>
