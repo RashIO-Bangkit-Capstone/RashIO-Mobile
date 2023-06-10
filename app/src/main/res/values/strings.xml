@@ -44,9 +44,9 @@
     <string name="accurate">Akurasi:</string>
     <string name="percentage">90%</string>
 
-    <string name="description_title">Deskripsi</string>
-<!--    <string name="description">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga.</string>-->
-    <string name="antidote">Pengobatan Penyakit</string>
+    <string name="description_title"><u>Deskripsi</u></string>
+    <!--    <string name="description">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga.</string>-->
+    <string name="antidote"><u>Pengobatan Penyakit</u></string>
     <string name="antidote_description">Mandi 1–2x sehari dengan menggunakan air hangat kuku (suhu 36–37 derajat Celcius).\n\nMandi 1–2x sehari dengan menggunakan air hangat kuku (suhu 36–37 derajat Celcius).</string>
 
 
@@ -55,6 +55,7 @@
     <string name="user_mail">emailpengguna@gmail.com</string>
     <string name="user_handphone">083423454453</string>
     <string name="password_confirmation">Password Confirmation</string>
+
     <string name="hello_blank_fragment">hello from blank</string>
     <string name="article_title">Artikel</string>
     <string name="by">by</string>
