@@ -9,10 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import id.rashio.android.api.ApiConfig
 import id.rashio.android.api.ApiService
-import id.rashio.android.data.repository.ArticleRepository
-import id.rashio.android.data.repository.DefaultArticleRepository
-import id.rashio.android.data.repository.DefaultDetectionRepository
-import id.rashio.android.data.repository.DetectionRepository
+import id.rashio.android.data.repository.*
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -36,4 +33,9 @@ object ApplicationModules {
         sharedPreferences: SharedPreferences
     ): DetectionRepository =
         DefaultDetectionRepository(api, sharedPreferences)
+
+    @Provides
+    fun provideDiseaseRepository(
+        api: ApiService
+    ): DiseaseRepository = DefaultDiseaseRepository(api)
 }

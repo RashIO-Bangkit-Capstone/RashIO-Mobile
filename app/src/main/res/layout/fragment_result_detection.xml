@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.resultdetection.ResultDetectionFragment">
+    tools:context=".ui.main.detection.result.ResultDetectionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,32 +23,32 @@
         android:id="@+id/layoutTopAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/resultdetect_title"
-            app:titleTextColor="@color/dark_brown"
             android:background="@color/white"
             app:navigationIcon="@drawable/back_button"
-            app:titleCentered="true" />
+            app:title="@string/resultdetect_title"
+            app:titleCentered="true"
+            app:titleTextColor="@color/dark_brown" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/layout_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar">
 
         <LinearLayout
             android:id="@+id/result_detection"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-70dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/img_profile"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    tools:text="@string/result"/>
+                    tools:text="@string/result" />
 
                 <TextView
                     android:id="@+id/tv_accuration"
@@ -84,6 +84,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <ProgressBar
                         android:id="@+id/tv_accuration_percent"
                         android:layout_width="75dp"
@@ -98,9 +99,9 @@
                         android:id="@+id/tv_percentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:layout_centerInParent="true"
                         tools:text="@string/percentage" />
                 </RelativeLayout>
             </LinearLayout>
@@ -109,8 +110,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
             <TextView
@@ -119,32 +120,58 @@
                 android:text="@string/description_title"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/descriptionContentLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/description"
-                android:textColor="@color/black"/>
+                android:orientation="vertical" />
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:text="@string/description"-->
+            <!--                android:textColor="@color/black"/>-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="16sp"
                 android:text="@string/antidote"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <TextView
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:text="@string/antidote_description"-->
+            <!--                android:textColor="@color/black"/>-->
+
+            <LinearLayout
+                android:id="@+id/medicationContentLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/antidote_description"
-                android:textColor="@color/black"/>
+                android:orientation="vertical" />
         </LinearLayout>
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package id.rashio.android.ui.main.profile
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -27,7 +29,18 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.navView.setupWithNavController(findNavController())
-        binding.navView.selectedItemId = R.id.profileFragment
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.navView.selectedItemId = R.id.profileFragment
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().navigateUp()
+        }
     }
 }

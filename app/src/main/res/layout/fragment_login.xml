@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_gravity="center_vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,9 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:lines="1"
-            android:hint="@string/email"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/login_info"
             tools:layout_editor_absoluteX="35dp" />
@@ -59,9 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:hint="@string/psswrd"
             android:inputType="textPassword"
             android:lines="1"
-            android:hint="@string/psswrd"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/edt_mail"
             tools:layout_editor_absoluteX="35dp" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.detection.DetectionFragment">
+    tools:context=".ui.main.detection.upload.UploadDetectionFragment">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -22,22 +22,20 @@
         android:id="@+id/layoutTopAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/detection_title"
-            app:titleTextColor="@color/dark_brown"
             android:background="@color/white"
             app:navigationIcon="@drawable/back_button"
+            app:title="@string/detection_title"
             app:titleCentered="true"
-            />
+            app:titleTextColor="@color/dark_brown" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
 
 
     <ImageView
@@ -46,33 +44,32 @@
         android:layout_height="0dp"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textinput_placeholder"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar"
-        app:srcCompat="@drawable/ic_image_placeholder"/>
+        app:srcCompat="@drawable/ic_image_placeholder" />
 
     <TextView
         android:id="@+id/textinput_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginBottom="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/galleryButton"
+        android:gravity="center"
         android:text="@string/description_input"
-        />
+        app:layout_constraintBottom_toTopOf="@id/galleryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/galleryButton"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_round_btn"
         android:text="@string/gallery"
         android:textAllCaps="false"
-        android:background="@drawable/ic_round_btn"
         app:layout_constraintBottom_toTopOf="@id/cameraButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -85,9 +82,9 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="32dp"
-        android:textAllCaps="false"
-        android:text="@string/camera"
         android:background="@drawable/ic_round_btn"
+        android:text="@string/camera"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@id/uploadButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -100,12 +97,24 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/ic_round_btn"
         android:text="@string/start_detect"
         android:textAllCaps="false"
-        android:background="@drawable/ic_round_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,4 +36,10 @@ interface ApiService {
         @Part image: MultipartBody.Part
     ): Call<FileUploadResponse>
 
+    @GET("diseases/{name}")
+    fun getDiseases(
+        @Path("name") name: String,
+        @Header("Content-Type") contentType: String = "application/json"
+    ): Call<DiseaseResponse>
+
 }

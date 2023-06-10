@@ -20,23 +20,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
-  
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/layoutTopAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
-            app:title="@string/detection_title"
-            app:titleTextColor="@color/dark_brown"
             app:navigationIcon="@drawable/ic_baseline_logout_24"
-            app:titleCentered="true" />
+            app:title="@string/detection_title"
+            app:titleCentered="true"
+            app:titleTextColor="@color/dark_brown" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -72,40 +72,39 @@
                     android:id="@+id/tv_item_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    tools:text="@string/username"
-                    android:textColor="@color/black" />
+                    tools:text="@string/username" />
 
                 <TextView
                     android:id="@+id/tv_author"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    tools:text="@string/user_mail"
                     android:textColor="@color/brown"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    />
+                    tools:text="@string/user_mail" />
 
                 <TextView
                     android:id="@+id/no_hp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="start"
+                    android:textColor="@color/brown"
                     android:textSize="14sp"
-                    tools:text="@string/user_handphone"
-                    android:textColor="@color/brown" />
+                    tools:text="@string/user_handphone" />
             </LinearLayout>
 
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorSecondary"
-        app:tabTextColor="@color/white"
-        tools:ignore="SpeakableTextPresentCheck"/>
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondary"
+            app:tabTextColor="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"

@@ -55,15 +55,25 @@
         android:id="@+id/profileFragment"
         android:name="id.rashio.android.ui.main.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detectionFragment"
-        android:name="id.rashio.android.ui.main.detection.DetectionFragment"
+        android:name="id.rashio.android.ui.main.detection.upload.UploadDetectionFragment"
         android:label="fragment_detection"
-        tools:layout="@layout/fragment_detection">
+        tools:layout="@layout/fragment_upload_detection">
         <action
             android:id="@+id/action_detectionFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_detectionFragment_to_resultDetectionFragment"
+            app:destination="@id/resultDetectionFragment" />
+        <action
+            android:id="@+id/action_detectionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
@@ -78,5 +88,21 @@
         <argument
             android:name="articleId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_detailArtikelFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultDetectionFragment"
+        android:name="id.rashio.android.ui.main.detection.result.ResultDetectionFragment"
+        android:label="fragment_result_detection"
+        tools:layout="@layout/fragment_result_detection" >
+        <argument
+            android:name="diseaseName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="percentage"
+            app:argType="float" />
     </fragment>
 </navigation>

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,7 +44,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.navView.setupWithNavController(findNavController())
-        binding.navView.selectedItemId = R.id.homeFragment
 
 
         val textDescription = binding.textDescription
@@ -67,9 +67,19 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun navigateToDetailArticle(articleId: Int) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailArtikelFragment(articleId)
-        findNavController().navigate(action)
+    override fun onStart() {
+        super.onStart()
+        binding.navView.selectedItemId = R.id.homeFragment
     }
 
+    private fun navigateToDetailArticle(articleId: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailArtikelFragment(articleId)
+        findNavController().safeNavigate(action)
+    }
+
+    fun NavController.safeNavigate(direction: NavDirections) {
+        currentDestination?.getAction(direction.actionId)?.run {
+            navigate(direction)
+        }
+    }
 }
