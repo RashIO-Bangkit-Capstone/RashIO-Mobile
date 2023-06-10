@@ -1,4 +1,5 @@
 <resources>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="app_name">RashIO</string>
     <!-- fragment - Login & Register -->
     <string name="login">Login</string>
@@ -21,14 +22,14 @@
 
     <string name="title_item_list">Artikel</string>
     <string name="greetings">Halo, %s\nSelamat Datang di RashIO</string>
-    <string name="title">Judul</string>
-    <string name="author">author by</string>
+    <string name="title">Kenali Lebih Dalam Penyebab Eksim pada Bayi dan Pengobatannya</string>
+    <string name="author">Ditinjau oleh: </string>
     <string name="save_bookmark">Save Bookmark?</string>
 
     <!-- fragment - Detail Artikel -->
     <string name="published_data">Terakhir Diperbarui: </string>
     <string name="reference_link">Referensi</string>
-    <string name="content_text">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. </string>
+    <string name="description">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat\n\nbeberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya\n\nmuncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. </string>
 
     <!-- fragment - Detection   -->
     <string name="detection_title">Deteksi</string>
@@ -36,14 +37,27 @@
     <string name="gallery">Galeri</string>
     <string name="camera">Kamera</string>
     <string name="description_input">Masukkan gambar yang ingin anda deteksi</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- fragment - Detection   -->
+    <string name="resultdetect_title">Hasil Deteksi</string>
+    <string name="result">Panu</string>
+    <string name="accurate">Akurasi:</string>
+    <string name="percentage">90%</string>
+
+    <string name="description_title">Deskripsi</string>
+<!--    <string name="description">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga.</string>-->
+    <string name="antidote">Pengobatan Penyakit</string>
+    <string name="antidote_description">Mandi 1–2x sehari dengan menggunakan air hangat kuku (suhu 36–37 derajat Celcius).\n\nMandi 1–2x sehari dengan menggunakan air hangat kuku (suhu 36–37 derajat Celcius).</string>
+
 
     <!-- fragment - Profile -->
     <string name="username">Nama Pengguna</string>
     <string name="user_mail">emailpengguna@gmail.com</string>
     <string name="user_handphone">083423454453</string>
     <string name="password_confirmation">Password Confirmation</string>
+    <string name="hello_blank_fragment">hello from blank</string>
+    <string name="article_title">Artikel</string>
+    <string name="by">by</string>
 
 
 </resources>

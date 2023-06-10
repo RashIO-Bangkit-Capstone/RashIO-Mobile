@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -44,6 +43,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.navView.setupWithNavController(findNavController())
+        binding.navView.selectedItemId = R.id.homeFragment
 
 
         val textDescription = binding.textDescription
@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
         textDescription.text = greeting
 
         val adapter = ArticleListAdapter(onClick = { articleId ->
-
+            navigateToDetailArticle(articleId)
         })
 
         val layoutManager = LinearLayoutManager(requireContext())
@@ -65,6 +65,11 @@ class HomeFragment : Fragment() {
             }
         }
 
-
     }
+
+    private fun navigateToDetailArticle(articleId: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailArtikelFragment(articleId)
+        findNavController().navigate(action)
+    }
+
 }
