@@ -1,6 +1,7 @@
 package id.rashio.android.ui.main.detailartikel
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import id.rashio.android.R
 import id.rashio.android.databinding.FragmentDetailArtikelBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -87,6 +90,19 @@ class DetailArtikelFragment : Fragment() {
             }
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        binding.navView.selectedItemId = R.id.homeFragment
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().navigateUp()
+        }
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun convertTimestampToFormattedDate(timestamp: String): String {
