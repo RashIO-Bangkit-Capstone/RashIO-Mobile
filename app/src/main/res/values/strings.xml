@@ -23,12 +23,14 @@
     <string name="title_item_list">Artikel</string>
     <string name="greetings">Halo, %s\nSelamat Datang di RashIO</string>
     <string name="title">Kenali Lebih Dalam Penyebab Eksim pada Bayi dan Pengobatannya</string>
-    <string name="author">Ditinjau oleh: </string>
+    <string name="ph_author">Ditinjau oleh: </string>
     <string name="save_bookmark">Save Bookmark?</string>
 
     <!-- fragment - Detail Artikel -->
     <string name="published_data">Terakhir Diperbarui: </string>
     <string name="reference_link">Referensi</string>
+    <string name="author">Dr. Fulan</string>
+    <string name="item_author"><u>by Dr. Fulan</u></string>
     <string name="description">Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya muncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat\n\nbeberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. Dermatitis numularis adalah penyakit kulit yang lebih sering dialami pria dibanding wanita, dan biasanya\n\nmuncul di usia 55–65 tahun. Kondisi dermatitis numularis biasanya muncul setelah adanya kerusakan pada permukaan kulit akibat beberapa pemicu, seperti luka bakar, gesekan, atau bahkan gigitan serangga. </string>
 
     <!-- fragment - Detection   -->
