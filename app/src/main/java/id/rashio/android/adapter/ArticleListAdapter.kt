@@ -2,24 +2,63 @@ package id.rashio.android.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import id.rashio.android.R
 import id.rashio.android.databinding.ItemArticleBinding
 import id.rashio.android.model.DataArticle
 
-class ArticleListAdapter(private val onClick: (Int) -> Unit) :
+class ArticleListAdapter(
+    private val onClick: (Int) -> Unit,
+    private val onBookmark: (Int) -> Unit
+) :
     ListAdapter<DataArticle, ArticleListAdapter.ArticleViewHolder>(ArticleDiffCallback) {
 
     class ArticleViewHolder(private val binding: ItemArticleBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: DataArticle, onClick: (Int) -> Unit) {
+        fun bind(item: DataArticle, onClick: (Int) -> Unit, onBookmark: (Int) -> Unit) {
             binding.apply {
                 itemArticleContainer.setOnClickListener {
                     onClick(item.id)
                 }
 
+                if (item.isBookmarked) {
+                    ivBookmark.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            ivBookmark.context,
+                            R.drawable.ic_bookmark_full
+                        )
+                    )
+                } else {
+                    ivBookmark.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            ivBookmark.context,
+                            R.drawable.ic_bookmark_empty
+                        )
+                    )
+                }
+
+                ivBookmark.setOnClickListener {
+                    onBookmark(item.id)
+                    if (item.isBookmarked) {
+                        ivBookmark.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                ivBookmark.context,
+                                R.drawable.ic_bookmark_empty
+                            )
+                        )
+                    } else {
+                        ivBookmark.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                ivBookmark.context,
+                                R.drawable.ic_bookmark_full
+                            )
+                        )
+                    }
+                }
                 tvItemTitle.text = item.title
                 tvAuthor.text = item.author
                 Glide.with(root.context)
@@ -37,7 +76,7 @@ class ArticleListAdapter(private val onClick: (Int) -> Unit) :
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val articleData = getItem(position)
-        holder.bind(articleData, onClick)
+        holder.bind(articleData, onClick, onBookmark)
     }
 }
 

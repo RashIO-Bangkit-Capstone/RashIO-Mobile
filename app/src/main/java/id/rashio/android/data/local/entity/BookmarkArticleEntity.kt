@@ -8,9 +8,8 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "bookmark_article")
 @Parcelize
 data class BookmarkArticleEntity(
-    @PrimaryKey(autoGenerate = false)
-    val id: Int,
-    val title: String,
-    val imageUrl: String,
-    val author: String
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val articleId: Int,
+    val isBookmarked: Boolean
 ) : Parcelable

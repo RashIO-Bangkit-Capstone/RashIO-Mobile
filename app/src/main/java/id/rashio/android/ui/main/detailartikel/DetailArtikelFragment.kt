@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -52,6 +53,7 @@ class DetailArtikelFragment : Fragment() {
             findNavController().navigateUp()
         }
 
+
         viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is DetailArticleUiState.Loading -> {
@@ -59,25 +61,60 @@ class DetailArtikelFragment : Fragment() {
                 }
                 is DetailArticleUiState.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE
-                    binding.tvTitleItem.text = uiState.article.data.title
-                    val datePublished = uiState.article.data.createdAt
+                    binding.tvTitleItem.text = uiState.article.title
+                    val datePublished = uiState.article.createdAt
                     binding.tvDate.text = convertTimestampToFormattedDate(datePublished)
-                    binding.tvAuthor.text = uiState.article.data.author
+                    binding.tvAuthor.text = uiState.article.author
                     binding.tvReferenceLink.setOnClickListener {
-                        val url = uiState.article.data.referenceUrl
+                        val url = uiState.article.referenceUrl
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         startActivity(intent)
                     }
                     val articleContentLayout = binding.articleContentLayout
-                    for (paragraph in uiState.article.data.bodies) {
+                    for (paragraph in uiState.article.bodies) {
                         val paragraphTextView = TextView(requireContext())
                         paragraphTextView.text = (paragraph + "\n")
                         paragraphTextView.setTextColor(resources.getColor(android.R.color.black))
                         articleContentLayout.addView(paragraphTextView)
                     }
                     Glide.with(this)
-                        .load(uiState.article.data.imageUrl)
+                        .load(uiState.article.imageUrl)
                         .into(binding.imageArticle)
+
+                    if (uiState.article.isBookmarked) {
+                        binding.bookmarkIcon.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                binding.bookmarkIcon.context,
+                                R.drawable.ic_bookmark_full
+                            )
+                        )
+                    } else {
+                        binding.bookmarkIcon.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                binding.bookmarkIcon.context,
+                                R.drawable.ic_bookmark_empty
+                            )
+                        )
+                    }
+
+                    binding.bookmarkIcon.setOnClickListener {
+                        viewModel.articleBookmarked(uiState.article.id)
+                        if (uiState.article.isBookmarked) {
+                            binding.bookmarkIcon.setImageDrawable(
+                                ContextCompat.getDrawable(
+                                    binding.bookmarkIcon.context,
+                                    R.drawable.ic_bookmark_empty
+                                )
+                            )
+                        } else {
+                            binding.bookmarkIcon.setImageDrawable(
+                                ContextCompat.getDrawable(
+                                    binding.bookmarkIcon.context,
+                                    R.drawable.ic_bookmark_full
+                                )
+                            )
+                        }
+                    }
                 }
                 is DetailArticleUiState.Error -> {
                     binding.progressBar.visibility = View.INVISIBLE

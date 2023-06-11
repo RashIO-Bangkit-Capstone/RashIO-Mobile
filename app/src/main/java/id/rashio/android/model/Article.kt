@@ -12,6 +12,7 @@ data class DataArticle(
     val title: String,
     val referenceUrl: String,
     val imageUrl: String,
-    val author: String
+    val author: String,
+    val isBookmarked: Boolean = false
 )
 
