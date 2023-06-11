@@ -7,14 +7,14 @@ import id.rashio.android.data.local.entity.BookmarkArticleEntity
 @Dao
 interface BookmarkArticleDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(bookmarkArticleEntity: BookmarkArticleEntity)
+    suspend fun insert(bookmarkArticleEntity: BookmarkArticleEntity)
 
-    @Delete
-    fun delete(bookmarkArticleEntity: BookmarkArticleEntity)
+    @Query("DELETE FROM bookmark_article WHERE articleId = :articleId")
+    suspend fun delete(articleId: Int)
 
-    @Query("SELECT * from bookmark_article ORDER BY id DSC")
+    @Query("SELECT * from bookmark_article ORDER BY id DESC")
     fun getAllArticleBookmark(): LiveData<List<BookmarkArticleEntity>>
 
-    @Query("SELECT EXISTS (SELECT 1 FROM bookmark_article WHERE id = :id)")
-    fun exists(id: Int)
+    @Query("SELECT EXISTS (SELECT * FROM bookmark_article WHERE articleId = :articleId)")
+    suspend fun exists(articleId: Int): Boolean
 }

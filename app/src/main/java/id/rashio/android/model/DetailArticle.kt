@@ -14,5 +14,6 @@ data class DataDetailArticle(
     val imageUrl: String,
     val author: String,
     val createdAt: String,
-    val bodies: List<String>
+    val bodies: List<String>,
+    val isBookmarked: Boolean = false
 )

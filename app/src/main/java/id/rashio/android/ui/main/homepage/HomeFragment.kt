@@ -27,14 +27,13 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var navController: NavController
     private val viewModel: HomeViewModel by viewModels()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -53,6 +52,8 @@ class HomeFragment : Fragment() {
 
         val adapter = ArticleListAdapter(onClick = { articleId ->
             navigateToDetailArticle(articleId)
+        }, onBookmark = { articleId ->
+            viewModel.articleBookmarked(articleId)
         })
 
         val layoutManager = LinearLayoutManager(requireContext())
@@ -70,6 +71,7 @@ class HomeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.navView.selectedItemId = R.id.homeFragment
+        viewModel.getArticle()
     }
 
     private fun navigateToDetailArticle(articleId: Int) {

@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rashio.android.data.repository.ArticleRepository
 import id.rashio.android.model.Article
@@ -12,6 +13,7 @@ import id.rashio.android.utils.TokenManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,6 +37,10 @@ class HomeViewModel @Inject constructor(
     private val tokenManager = TokenManager(sharedPreferences)
 
     init {
+        getArticle()
+    }
+
+    fun getArticle() {
         val call = articleRepository.getAllArticle()
         call.enqueue(object : Callback<Article> {
             override fun onResponse(
@@ -42,8 +48,16 @@ class HomeViewModel @Inject constructor(
                 response: Response<Article>
             ) {
                 if (response.isSuccessful) {
-                    val data = response.body()?.data ?: emptyList()
-                    _uiState.update { HomeUiState(article = data) }
+                    viewModelScope.launch {
+                        val data = (response.body()?.data ?: emptyList())
+                            .map { article ->
+                                val isBookmarked =
+                                    articleRepository.getArticleIsBookmarked(article.id)
+                                val updatedArticle = article.copy(isBookmarked = isBookmarked)
+                                updatedArticle
+                            }
+                        _uiState.update { HomeUiState(article = data) }
+                    }
 
                 } else {
                     val errorBody = response.errorBody()
@@ -56,6 +70,16 @@ class HomeViewModel @Inject constructor(
             override fun onFailure(call: Call<Article>, t: Throwable) {
             }
         })
+    }
+
+    fun articleBookmarked(articleId: Int) {
+        viewModelScope.launch {
+            if (articleRepository.getArticleIsBookmarked(articleId)) {
+                articleRepository.removeBookmarkedArticle(articleId)
+            } else {
+                articleRepository.articleBookmarked(articleId)
+            }
+        }
     }
 
     fun showError(msg: String) {
