@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import id.rashio.android.api.ApiConfig
 import id.rashio.android.api.ApiService
+import id.rashio.android.data.local.room.BookmarkArticleDatabase
 import id.rashio.android.data.repository.*
 
 @Module
@@ -24,8 +25,9 @@ object ApplicationModules {
     @Provides
     fun provideArticleRepository(
         api: ApiService,
+        database: BookmarkArticleDatabase
     ): ArticleRepository =
-        DefaultArticleRepository(api)
+        DefaultArticleRepository(api, database.bookmarkArticleDao())
 
     @Provides
     fun provideDetectionRepository(
@@ -38,4 +40,8 @@ object ApplicationModules {
     fun provideDiseaseRepository(
         api: ApiService
     ): DiseaseRepository = DefaultDiseaseRepository(api)
+
+    @Provides
+    fun provideDatabaseBookmark(@ApplicationContext context: Context): BookmarkArticleDatabase =
+        BookmarkArticleDatabase.getDatabase(context)
 }

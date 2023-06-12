@@ -1,12 +1,11 @@
 package id.rashio.android.ui.main.detailartikel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.rashio.android.data.repository.ArticleRepository
+import id.rashio.android.model.DataDetailArticle
 import id.rashio.android.model.DetailArticle
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,9 +38,18 @@ class DetailArtikelViewModel @Inject constructor(
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    _uiState.postValue(
-                        data?.let { DetailArticleUiState.Success(it) }
-                    )
+                    viewModelScope.launch {
+                        _uiState.postValue(
+                            data?.let {
+                                val article = it.data
+                                val isBookmarked =
+                                    articleRepository.getArticleIsBookmarked(article.id)
+                                DetailArticleUiState.Success(
+                                    article.copy(isBookmarked = isBookmarked)
+                                )
+                            }
+                        )
+                    }
 
                 } else {
                     val errorBody = response.errorBody()
@@ -59,12 +67,22 @@ class DetailArtikelViewModel @Inject constructor(
         })
     }
 
+    fun articleBookmarked(articleId: Int) {
+        viewModelScope.launch {
+            if (articleRepository.getArticleIsBookmarked(articleId)) {
+                articleRepository.removeBookmarkedArticle(articleId)
+            } else {
+                articleRepository.articleBookmarked(articleId)
+            }
+        }
+    }
+
 
 }
 
 sealed interface DetailArticleUiState {
     object Loading : DetailArticleUiState
-    data class Success(val article: DetailArticle) : DetailArticleUiState
+    data class Success(val article: DataDetailArticle) : DetailArticleUiState
     data class Error(val message: String) : DetailArticleUiState
 }
 

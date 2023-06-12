@@ -10,4 +10,10 @@ interface ArticleRepository {
 
     fun getArticleDetail(id: Int): Call<DetailArticle>
 
+    suspend fun getArticleIsBookmarked(articleId: Int): Boolean
+
+    suspend fun articleBookmarked(articleId: Int)
+
+    suspend fun removeBookmarkedArticle(articleId: Int)
+
 }

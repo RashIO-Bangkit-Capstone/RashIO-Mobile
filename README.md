@@ -7,9 +7,10 @@ Skin diseases are often considered normal, but in some cases skin diseases can b
 ## Project Plan
 
 -   [x] Design UI/UX for High Fidelity Mockup using Figma
--   [ ] UI Implementation (XML Layout) & Import Dependencies
--   [ ] Create authentication & article feature
--   [ ] Integrating and Implementing CameraX for the skin detection feature
+-   [x] UI Implementation (XML Layout) & Import Dependencies
+-   [x] Create authentication & article feature
+-   [x] Integrating and Implementing CameraX for the skin detection feature
+-   [ ] Detection History
 -   [ ] Testing
 
 ## Features
