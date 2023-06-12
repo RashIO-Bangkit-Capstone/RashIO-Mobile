@@ -79,7 +79,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_item_title"
+                    android:id="@+id/tv_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -88,7 +88,7 @@
                     android:text="@string/username" />
 
                 <TextView
-                    android:id="@+id/tv_author"
+                    android:id="@+id/tv_emailUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/brown"
@@ -97,7 +97,7 @@
                     android:text="@string/user_mail" />
 
                 <TextView
-                    android:id="@+id/no_hp"
+                    android:id="@+id/tv_phoneNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="start"
