@@ -5,22 +5,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import id.rashio.android.R
 import id.rashio.android.databinding.FragmentProfileBinding
+import id.rashio.android.ui.main.homepage.HomeViewModel
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: ProfileViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,6 +38,12 @@ class ProfileFragment : Fragment() {
 
         binding.topAppBar.setNavigationOnClickListener {
             findNavController().navigateUp()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            viewModel.logout()
+            Toast.makeText(activity, "Berhasil Logout", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
         }
     }
 

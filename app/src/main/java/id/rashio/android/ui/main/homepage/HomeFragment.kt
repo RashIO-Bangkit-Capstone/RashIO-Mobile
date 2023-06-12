@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var navController: NavController
     private val viewModel: HomeViewModel by viewModels()
 
 
