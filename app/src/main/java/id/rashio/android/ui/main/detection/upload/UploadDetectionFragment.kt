@@ -76,7 +76,6 @@ class UploadDetectionFragment : Fragment() {
 
         binding.uploadButton.setOnClickListener {
             uploadImage()
-            binding.progressBar.visibility = View.VISIBLE
         }
 
         lifecycleScope.launch {
@@ -156,6 +155,7 @@ class UploadDetectionFragment : Fragment() {
     private fun uploadImage() {
 
         if (imageFile != null) {
+            binding.progressBar.visibility = View.VISIBLE
             val file = reduceFileImage(imageFile as File)
             viewModel.uploadFile(file)
 
