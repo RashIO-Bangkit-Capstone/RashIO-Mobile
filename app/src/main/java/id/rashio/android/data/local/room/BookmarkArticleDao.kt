@@ -1,8 +1,8 @@
 package id.rashio.android.data.local.room
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import id.rashio.android.data.local.entity.BookmarkArticleEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookmarkArticleDao {
@@ -13,7 +13,7 @@ interface BookmarkArticleDao {
     suspend fun delete(articleId: Int)
 
     @Query("SELECT * from bookmark_article ORDER BY id DESC")
-    fun getAllArticleBookmark(): LiveData<List<BookmarkArticleEntity>>
+    fun getAllArticleBookmark(): Flow<List<BookmarkArticleEntity>>
 
     @Query("SELECT EXISTS (SELECT * FROM bookmark_article WHERE articleId = :articleId)")
     suspend fun exists(articleId: Int): Boolean

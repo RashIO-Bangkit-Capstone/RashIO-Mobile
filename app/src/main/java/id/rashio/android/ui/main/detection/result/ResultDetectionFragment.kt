@@ -2,7 +2,6 @@ package id.rashio.android.ui.main.detection.result
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +41,6 @@ class ResultDetectionFragment : Fragment() {
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            Log.d("uiState Result", uiState.toString())
             when (uiState) {
                 is ResultDetectionUiState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE

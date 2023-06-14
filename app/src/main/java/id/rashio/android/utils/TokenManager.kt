@@ -51,6 +51,26 @@ class TokenManager(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
+    fun getEmail(): String? {
+        return if (decodeToken() != "") {
+            val jsonObject = JSONObject(decodeToken())
+            jsonObject.getString("email")
+        } else {
+            ""
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getPhoneNumber(): String? {
+        return if (decodeToken() != "") {
+            val jsonObject = JSONObject(decodeToken())
+            jsonObject.getString("phoneNumber")
+        } else {
+            ""
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun decodeToken(): String {
         val token = getAccessToken()
         val body = token?.split(".")?.get(1)

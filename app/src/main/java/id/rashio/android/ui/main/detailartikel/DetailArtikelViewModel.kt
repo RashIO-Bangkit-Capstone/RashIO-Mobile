@@ -67,12 +67,12 @@ class DetailArtikelViewModel @Inject constructor(
         })
     }
 
-    fun articleBookmarked(articleId: Int) {
+    fun articleBookmarked(articleId: Int, title: String, imageUrl: String, author: String) {
         viewModelScope.launch {
             if (articleRepository.getArticleIsBookmarked(articleId)) {
                 articleRepository.removeBookmarkedArticle(articleId)
             } else {
-                articleRepository.articleBookmarked(articleId)
+                articleRepository.articleBookmarked(articleId, title, imageUrl, author)
             }
         }
     }
