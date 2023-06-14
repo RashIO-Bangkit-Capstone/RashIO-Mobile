@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.detection.result.ResultDetectionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -37,129 +36,125 @@
             app:titleTextColor="@color/dark_brown" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
-        android:id="@+id/layout_view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar">
+        android:layout_marginBottom="5dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/result_detection"
+            android:id="@+id/layout_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/layoutTopAppBar">
 
-            <ImageView
-                android:id="@+id/img_profile"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:layout_margin="15dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/pict_hasildeteksi" />
+            <LinearLayout
+                android:id="@+id/result_detection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_margin="15dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pict_hasildeteksi" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_item_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        tools:text="@string/result" />
+
+                    <TextView
+                        android:id="@+id/tv_accuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/brown"
+                        android:text="@string/accurate" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ProgressBar
+                            android:id="@+id/tv_accuration_percent"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:indeterminateOnly="false"
+                            android:progressDrawable="@drawable/circular_progress_bar"
+                            android:rotation="-90"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:progress="90" />
+
+                        <TextView
+                            android:id="@+id/tv_percentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            tools:text="@string/percentage" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_item_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/description_title"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    tools:text="@string/result" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/descriptionContentLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical" />
 
                 <TextView
-                    android:id="@+id/tv_accuration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/brown"
-                    tools:text="@string/accurate" />
+                    android:layout_marginTop="15dp"
+                    android:text="@string/antidote"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <RelativeLayout
+                <LinearLayout
+                    android:id="@+id/medicationContentLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ProgressBar
-                        android:id="@+id/tv_accuration_percent"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:indeterminateOnly="false"
-                        android:progressDrawable="@drawable/circular_progress_bar"
-                        android:rotation="-90"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        tools:progress="90" />
-
-                    <TextView
-                        android:id="@+id/tv_percentage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:text="@string/percentage" />
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical" />
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description_title"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/descriptionContentLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="vertical" />
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="5dp"-->
-            <!--                android:text="@string/description"-->
-            <!--                android:textColor="@color/black"/>-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/antidote"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="5dp"-->
-            <!--                android:text="@string/antidote_description"-->
-            <!--                android:textColor="@color/black"/>-->
-
-            <LinearLayout
-                android:id="@+id/medicationContentLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="vertical" />
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"
