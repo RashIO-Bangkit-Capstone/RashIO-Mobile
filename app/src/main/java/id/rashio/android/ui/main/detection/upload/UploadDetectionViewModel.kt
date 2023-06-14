@@ -73,7 +73,8 @@ class UploadDetectionViewModel @Inject constructor(
             }
 
             override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
-                Log.d("Testing On Failure", t.toString())
+                val message = t.message
+                showError(message ?: "Unexpected Error")
             }
         })
 
