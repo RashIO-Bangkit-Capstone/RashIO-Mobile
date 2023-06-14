@@ -97,7 +97,8 @@ class UploadDetectionFragment : Fragment() {
                             findNavController().navigate(
                                 UploadDetectionFragmentDirections.actionDetectionFragmentToResultDetectionFragment(
                                     diseaseName = it.diseaseName,
-                                    percentage = it.percentage
+                                    percentage = it.percentage,
+                                    imageUrl = it.imageUrl
                                 )
                             )
                             viewModel.navigatedToResult()

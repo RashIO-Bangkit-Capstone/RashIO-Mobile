@@ -9,5 +9,6 @@ data class FileUploadResponse(
 
 data class ResultData(
     val result: String,
-    val percentage: Float
+    val percentage: Float,
+    val imageUrl: String
 )

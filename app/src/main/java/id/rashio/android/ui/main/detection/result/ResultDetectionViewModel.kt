@@ -15,7 +15,11 @@ import javax.inject.Inject
 
 sealed interface ResultDetectionUiState {
     object Loading : ResultDetectionUiState
-    data class Success(val disease: DiseaseResponse, val percentage: Float? = null) :
+    data class Success(
+        val disease: DiseaseResponse,
+        val percentage: Float? = null,
+        val imageUrl: String?
+    ) :
         ResultDetectionUiState
 
     data class Error(val message: String) : ResultDetectionUiState
@@ -29,6 +33,8 @@ class ResultDetectionViewModel @Inject constructor(
 
     private val diseaseName: String? = savedStateHandle["diseaseName"]
     private val percentage: Float? = savedStateHandle["percentage"]
+    private val imageUrl: String? = savedStateHandle["imageUrl"]
+
 
     private val _uiState = MutableLiveData<ResultDetectionUiState>()
     val uiState: LiveData<ResultDetectionUiState> = _uiState
@@ -49,7 +55,7 @@ class ResultDetectionViewModel @Inject constructor(
                 if (response.isSuccessful) {
                     val data = response.body()
                     _uiState.postValue(
-                        data?.let { ResultDetectionUiState.Success(it, percentage) }
+                        data?.let { ResultDetectionUiState.Success(it, percentage, imageUrl) }
                     )
 
                 } else {

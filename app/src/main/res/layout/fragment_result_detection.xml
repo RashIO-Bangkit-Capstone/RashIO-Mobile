@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img_profile"
+                    android:id="@+id/iv_disease"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
                     android:layout_margin="15dp"

@@ -25,7 +25,8 @@ sealed interface UploadDetectionUiState {
     data class Success(
         val navigateToResult: Boolean? = null,
         val diseaseName: String? = null,
-        val percentage: Float? = null
+        val percentage: Float? = null,
+        val imageUrl: String? = null
     ) : UploadDetectionUiState
 
     data class Error(val message: String? = null) : UploadDetectionUiState
@@ -56,8 +57,9 @@ class UploadDetectionViewModel @Inject constructor(
 
                     val diseaseId = response.body()?.data?.result ?: ""
                     val percentage = response.body()?.data?.percentage ?: 0F
+                    val imageUrl = response.body()?.data?.imageUrl ?: ""
 
-                    navigateToResult(diseaseId, percentage)
+                    navigateToResult(diseaseId, percentage, imageUrl)
 
                 } else {
                     val errorBody = response.errorBody()
@@ -81,9 +83,9 @@ class UploadDetectionViewModel @Inject constructor(
     }
 
 
-    fun navigateToResult(diseaseName: String, percentage: Float) {
+    fun navigateToResult(diseaseName: String, percentage: Float, imageUrl: String) {
         _uiState.update {
-            UploadDetectionUiState.Success(true, diseaseName, percentage)
+            UploadDetectionUiState.Success(true, diseaseName, percentage, imageUrl)
         }
     }
 

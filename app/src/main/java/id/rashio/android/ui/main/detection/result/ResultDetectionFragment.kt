@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import id.rashio.android.R
@@ -22,6 +23,7 @@ class ResultDetectionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: ResultDetectionViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,6 +74,9 @@ class ResultDetectionFragment : Fragment() {
                         paragraphTextView.setTextColor(resources.getColor(android.R.color.black))
                         medicationContentLayout.addView(paragraphTextView)
                     }
+                    Glide.with(requireContext())
+                        .load(uiState.imageUrl)
+                        .into(binding.ivDisease)
                     binding.progressBar.visibility = View.INVISIBLE
                 }
             }

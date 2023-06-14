@@ -139,5 +139,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true"/>
+        <argument
+            android:name="imageUrl"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>
