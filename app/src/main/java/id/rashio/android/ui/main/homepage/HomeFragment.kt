@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
 
         val adapter = ArticleListAdapter(onClick = { articleId ->
             navigateToDetailArticle(articleId)
-        }, onBookmark = { articleId ->
-            viewModel.articleBookmarked(articleId)
+        }, onBookmark = { articleId, title, imageUrl, author ->
+            viewModel.articleBookmarked(articleId, title, imageUrl, author)
         })
 
         val layoutManager = LinearLayoutManager(requireContext())

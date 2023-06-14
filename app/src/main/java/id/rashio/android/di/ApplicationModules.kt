@@ -44,4 +44,10 @@ object ApplicationModules {
     @Provides
     fun provideDatabaseBookmark(@ApplicationContext context: Context): BookmarkArticleDatabase =
         BookmarkArticleDatabase.getDatabase(context)
+
+    @Provides
+    fun provideHistoryRepository(
+        api: ApiService,
+        sharedPreferences: SharedPreferences
+    ): HistoryDetectionRepository = DefaultHistoryDetectionRepository(api, sharedPreferences)
 }

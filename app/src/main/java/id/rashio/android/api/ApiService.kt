@@ -42,4 +42,10 @@ interface ApiService {
         @Header("Content-Type") contentType: String = "application/json"
     ): Call<DiseaseResponse>
 
+    @GET("predictions/{userId}")
+    fun historyDetection(
+        @Header("authorization") authorization: String,
+        @Path("userId") id: String
+    ): Call<RiwayatDeteksiResponse>
+
 }

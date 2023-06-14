@@ -18,7 +18,7 @@ class ProfileViewModel @Inject constructor(
     private val tokenManager = TokenManager(sharedPreferences)
 
 
-    fun logout(){
+    fun logout() {
         val editor = sharedPreferences.edit()
         editor.remove("ACCESS_TOKEN")
         editor.remove("REFRESH_TOKEN")

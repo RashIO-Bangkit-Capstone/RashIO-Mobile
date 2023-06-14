@@ -98,7 +98,12 @@ class DetailArtikelFragment : Fragment() {
                     }
 
                     binding.bookmarkIcon.setOnClickListener {
-                        viewModel.articleBookmarked(uiState.article.id)
+                        viewModel.articleBookmarked(
+                            uiState.article.id,
+                            uiState.article.title,
+                            uiState.article.imageUrl,
+                            uiState.article.author
+                        )
                         if (uiState.article.isBookmarked) {
                             binding.bookmarkIcon.setImageDrawable(
                                 ContextCompat.getDrawable(

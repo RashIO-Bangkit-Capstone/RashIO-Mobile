@@ -11,5 +11,8 @@ data class BookmarkArticleEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val articleId: Int,
+    val title: String,
+    val imageUrl: String,
+    val author: String,
     val isBookmarked: Boolean
 ) : Parcelable

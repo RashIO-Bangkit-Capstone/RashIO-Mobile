@@ -62,6 +62,8 @@
     <string name="hello_blank_fragment">hello from blank</string>
     <string name="article_title">Artikel</string>
     <string name="by">by</string>
+    <string name="tab_text_1">Riwayat Deteksi</string>
+    <string name="tab_text_2">Bookmark</string>
 
 
 </resources>

@@ -67,8 +67,14 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/profileFragment"
+            app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_profileFragment_to_detailArtikelFragment"
+            app:destination="@id/detailArtikelFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_resultDetectionFragment"
+            app:destination="@id/resultDetectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/detectionFragment"

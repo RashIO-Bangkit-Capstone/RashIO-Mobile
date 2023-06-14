@@ -5,6 +5,7 @@ import id.rashio.android.data.local.entity.BookmarkArticleEntity
 import id.rashio.android.data.local.room.BookmarkArticleDao
 import id.rashio.android.model.Article
 import id.rashio.android.model.DetailArticle
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
 import javax.inject.Inject
 
@@ -26,13 +27,27 @@ class DefaultArticleRepository @Inject constructor(
         return dao.exists(articleId)
     }
 
-    override suspend fun articleBookmarked(articleId: Int) {
+    override suspend fun articleBookmarked(
+        articleId: Int,
+        title: String,
+        imageUrl: String,
+        author: String
+    ) {
         dao.insert(
-            BookmarkArticleEntity(articleId = articleId, isBookmarked = true)
+            BookmarkArticleEntity(
+                articleId = articleId,
+                title = title,
+                imageUrl = imageUrl,
+                author = author,
+                isBookmarked = true
+            )
         )
     }
 
     override suspend fun removeBookmarkedArticle(articleId: Int) {
         dao.delete(articleId)
     }
+
+    override fun getAllBookmarkedArticle(): Flow<List<BookmarkArticleEntity>> =
+        dao.getAllArticleBookmark()
 }
