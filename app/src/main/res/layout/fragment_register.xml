@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp"
+        tools:context=".ui.main.register.RegisterFragment">
+
+        <TextView
+            android:id="@+id/rgst_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/regis"
+            android:textColor="@color/dark_brown"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="80dp" />
+
+        <TextView
+            android:id="@+id/rgst_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/regis_info"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_title"
+            tools:layout_editor_absoluteX="35dp" />
+
+        <EditText
+            android:id="@+id/rgst_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:lines="1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_info" />
+
+        <EditText
+            android:id="@+id/rgst_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_name" />
+
+        <EditText
+            android:id="@+id/rgst_psswrd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/psswrd"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_email" />
+
+        <EditText
+            android:id="@+id/rgst_confirm_psswrd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/password_confirmation"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_psswrd" />
+
+        <EditText
+            android:id="@+id/rgst_no_hp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/no_hp"
+            android:inputType="number|phone"
+            android:lines="1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_confirm_psswrd" />
+
+        <Button
+            android:id="@+id/btn_regis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/round_btn_brown"
+            android:text="@string/regis"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/rgst_no_hp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="@id/btn_regis"
+            app:layout_constraintTop_toBottomOf="@+id/btn_regis">
+
+            <TextView
+                android:id="@+id/ask_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/have_acc"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/link_to_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/brown"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/ask_login"
+                app:layout_constraintTop_toBottomOf="@+id/btn_regis" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
